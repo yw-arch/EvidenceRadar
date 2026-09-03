@@ -1,6 +1,6 @@
 # Pain & Neurophysiology 個人設定
 
-本 fork 新增 `pain_neurophysiology` profile，供疼痛、偏頭痛與神經生理研究的文獻初篩使用。
+本 fork 新增 `pain_neurophysiology` profile，供疼痛神經科學、慢性疼痛與神經生理研究的文獻初篩使用。
 這是設定與檢索策略的第一版，尚未以實際文獻集合評估召回率或精確率，也不是系統性回顧搜尋策略。
 
 ## 第一版範圍
@@ -8,17 +8,17 @@
 | 分類 | 內容與範圍 |
 |---|---|
 | 疼痛神經科學 | 痛覺傳入、中樞敏感化、疼痛調節、痛覺過敏與觸誘發痛 |
-| 偏頭痛與頭痛 | migraine、headache、三叉血管系統與皮質擴散性去極化 |
-| 神經生理與 EEG | EEG／神經振盪，搭配疼痛、體感、連結、coherence、PSD、靜息態或 ERP；另以獨立查詢搜尋疼痛／頭痛／體感相關的 functional／effective／brain connectivity，不限定 EEG |
-| 神經調節 | 正中神經／周邊神經刺激、TENS、tDCS、tACS、TMS、VNS 等完整術語與常見縮寫，搭配疼痛、頭痛、復健或體感 |
+| 慢性疼痛 | chronic／persistent pain、慢性原發性／次發性疼痛、廣泛性／肌肉骨骼／神經病理性疼痛、慢性下背痛、慢性術後疼痛、纖維肌痛與複雜性局部疼痛症候群 |
+| 神經生理與 EEG | EEG／神經振盪，搭配疼痛、體感、連結、coherence、PSD、靜息態或 ERP；另以獨立查詢搜尋疼痛／慢性疼痛／體感相關的 functional／effective／brain connectivity，不限定 EEG |
+| 神經調節 | 正中神經／周邊神經刺激、TENS、tDCS、tACS、TMS、VNS 等完整術語與常見縮寫，搭配疼痛、慢性疼痛、復健或體感 |
 | QST 與感覺處理 | 定量感覺測試、CPM、疼痛時間加成、壓痛／熱痛／機械痛閾值與感覺分型 |
-| 復健與物理治療 | 物理治療、復健、運動治療、疼痛神經科學教育與漸進式動作意象，搭配疼痛或頭痛 |
+| 復健與物理治療 | 物理治療、復健、運動治療、疼痛神經科學教育與漸進式動作意象，搭配疼痛或慢性疼痛 |
 
 所有查詢與 relevance terms 都位於 `config/radar_master.json` 的
 `stream_routing.pain_reader_*`，不依賴 legacy query catalog。
 查詢使用 Title/Abstract 欄位；Europe PMC adapter 會轉成 TITLE_ABS。
 第一版以完整術語為主，另對 TENS、tDCS、tACS、rTMS、TMS、taVNS、VNS、
-QST 與 CPM 加入具疼痛／頭痛／感覺或復健條件的獨立查詢，減少縮寫歧義。
+QST 與 CPM 加入具疼痛／慢性疼痛／感覺或復健條件的獨立查詢，減少縮寫歧義。
 正中神經刺激亦納入 median nerve electrical stimulation 與 transcutaneous median nerve stimulation。
 搜尋仍可能漏掉其他表述，首次實際執行後應檢視並調整。
 未限定年齡、人類研究、研究設計、期刊或 OA，保留機制研究與方法研究。

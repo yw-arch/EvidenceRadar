@@ -17,6 +17,8 @@ class PainNeurophysiologyTests(unittest.TestCase):
             profile_id="pain_neurophysiology",
         )
         self.assertEqual(len(runtime.category_order), 6)
+        self.assertIn("chronic_pain", runtime.category_order)
+        self.assertNotIn("headache_migraine", runtime.category_order)
         self.assertEqual(set(runtime.scoring["categories"]), set(runtime.category_order))
         self.assertEqual(set(runtime.source_adapters), {"pubmed", "europe_pmc", "publisher"})
         self.assertEqual(
@@ -46,9 +48,9 @@ class PainNeurophysiologyTests(unittest.TestCase):
         runtime = load_master_runtime(ROOT / "config/radar_master.json", "pain_neurophysiology")
         examples = {
             "pain_neuroscience": "We investigated central sensitization in adults.",
-            "headache_migraine": "Participants had migraine.",
-            "neurophysiology_eeg": "Functional connectivity was assessed with fMRI in migraine.",
-            "neuromodulation": "tDCS was investigated in migraine.",
+            "chronic_pain": "Participants had persistent pain.",
+            "neurophysiology_eeg": "Functional connectivity was assessed with fMRI in chronic pain.",
+            "neuromodulation": "tDCS was investigated in fibromyalgia.",
             "qst_sensory_processing": "We measured CPM in participants with pain.",
             "pain_rehabilitation": "Physical therapy was investigated for chronic pain.",
         }
