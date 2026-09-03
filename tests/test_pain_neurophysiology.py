@@ -31,14 +31,14 @@ class PainNeurophysiologyTests(unittest.TestCase):
 
         runtime = load_master_runtime(ROOT / "config/radar_master.json", "pain_neurophysiology")
         for stream_id, stream in runtime.streams["streams"].items():
-            with self.subTest(stream=stream_id):
-                query, = stream["queries"]
-                translated = _europe_pmc_query(query, date(2026, 9, 1), date(2026, 9, 3))
-                self.assertNotIn("[Title/Abstract]", translated)
-                self.assertEqual(translated.count("TITLE_ABS:"), query.count("[Title/Abstract]"))
-                self.assertIn("2026-09-01", translated)
-                if stream_id.endswith(("neurophysiology_eeg", "neuromodulation", "pain_rehabilitation")):
-                    self.assertIn(") AND (", translated)
+            for query in stream["queries"]:
+                with self.subTest(stream=stream_id, query=query):
+                    translated = _europe_pmc_query(query, date(2026, 9, 1), date(2026, 9, 3))
+                    self.assertNotIn("[Title/Abstract]", translated)
+                    self.assertEqual(translated.count("TITLE_ABS:"), query.count("[Title/Abstract]"))
+                    self.assertIn("2026-09-01", translated)
+                    if stream_id.endswith(("neurophysiology_eeg", "neuromodulation", "pain_rehabilitation")):
+                        self.assertIn(") AND (", translated)
 
     def test_relevant_non_oa_abstracts_survive_metadata_threshold(self):
         from tools.run_github_radar_core import Candidate, score_candidate
@@ -47,9 +47,9 @@ class PainNeurophysiologyTests(unittest.TestCase):
         examples = {
             "pain_neuroscience": "We investigated central sensitization in adults.",
             "headache_migraine": "Participants had migraine.",
-            "neurophysiology_eeg": "EEG was used to assess functional connectivity.",
-            "neuromodulation": "Median nerve stimulation was investigated in migraine.",
-            "qst_sensory_processing": "We measured conditioned pain modulation.",
+            "neurophysiology_eeg": "Functional connectivity was assessed with fMRI in migraine.",
+            "neuromodulation": "tDCS was investigated in migraine.",
+            "qst_sensory_processing": "We measured CPM in participants with pain.",
             "pain_rehabilitation": "Physical therapy was investigated for chronic pain.",
         }
         for category, abstract in examples.items():
