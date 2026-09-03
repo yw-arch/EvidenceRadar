@@ -77,6 +77,14 @@ Default mode is `daily` with an exact rolling 72-hour window in `Asia/Tokyo`.
 Date-only evidence on the cutoff calendar day is boundary-ambiguous and must be
 excluded.
 
+For explicitly selected personal profiles, `config/radar_master.json` is
+authoritative for active categories, stream queries, sources and selection
+limits. References below to five categories and 5–8 Featured items describe
+the reference configuration; `pain_neurophysiology` instead selects six
+categories with a target of three and maximum of five Featured items each.
+This profile selection does not alter the event window, evidence requirements,
+source coverage, no-padding rule or validation gates.
+
 ## 3. Required inputs
 
 Read these files before discovery:
