@@ -1,5 +1,7 @@
 # EvidenceRadar
 
+本 fork 的疼痛與神經生理個人設定：[`pain_neurophysiology` 使用說明](docs/PAIN_NEUROPHYSIOLOGY.md)。執行時請明確指定此 profile；原作者的 `owner_daily` 仍保留為預設。
+
 > **狀態：可使用，仍在持續開發與收緊驗證契約。**
 >
 > EvidenceRadar 是一套可公開自行部署、可稽核、也可以依個人需求改造的近期研究雷達。它把「發現新文獻」與「證據已核實」分開，使用事件窗、publication identity、來源覆蓋、claim ledger、可攜 State、executor receipts 與 fail-closed validation，減少重複通知、來源誤判與過度宣稱。
